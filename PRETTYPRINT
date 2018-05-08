@@ -1,0 +1,18 @@
+public class Solution {
+    public ArrayList<ArrayList<Integer>> prettyPrint(int A) {
+        int size = A * 2 - 1;
+        ArrayList<ArrayList<Integer>> grid = new ArrayList<ArrayList<Integer>>(size);
+        for (int i = 0; i < size; i++) {
+            ArrayList<Integer> row = new ArrayList<Integer>(size);
+            int rval = Integer.min(i, size - i - 1);
+            for (int j = 0; j < size; j++) {
+                int cval = Integer.min(j, size - j - 1);
+                int input = A - Integer.min(rval, cval);
+                row.add(j, input);
+            }
+            grid.add(i, row);
+        }
+        return grid;
+    }
+    
+}
